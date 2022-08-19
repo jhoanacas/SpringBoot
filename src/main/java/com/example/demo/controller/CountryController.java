@@ -32,6 +32,11 @@ public class CountryController {
         return countryService.getCountry();
     }
 
+    @RequestMapping(value="/countries", method=RequestMethod.POST)
+    public Country createCountry(@RequestBody Country emp) {
+        return countryService.createCountry(emp);
+    }
+
     @RequestMapping(value="/countries/{countryId}", method=RequestMethod.PUT)
     public Country readCountry(@PathVariable(value = "countryId") Integer id, @RequestBody Country countryDetails) {
         return countryService.updateCountry(id, countryDetails);
